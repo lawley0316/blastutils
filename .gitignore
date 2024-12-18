@@ -1,0 +1,7 @@
+.idea
+.vscode
+.DS_Store
+__pycache__
+blastutils.egg-info
+*.pyc
+.pytest_cache
