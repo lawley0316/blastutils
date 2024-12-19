@@ -5,3 +5,4 @@ __pycache__
 blastutils.egg-info
 *.pyc
 .pytest_cache
+BlastOutputFile_write_demo.txt
