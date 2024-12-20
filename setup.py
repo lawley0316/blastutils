@@ -15,7 +15,7 @@ URL = 'https://github.com/lawley0316/blastutils'
 EMAIL = 'lawley0316@gmail.com'
 AUTHOR = 'Lawley'
 REQUIRES_PYTHON = '>=3.6.0'
-VERSION = '1.0.0'
+VERSION = '1.0.1'
 
 REQUIRED = [
 ]

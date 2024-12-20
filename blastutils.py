@@ -128,7 +128,10 @@ class Record:
             return False
         return self.hits[-1].sseqid == sseqid
 
-    def create(self, sseqid, slen, qstart, qend, sstart, send, mismatch, gapopen, length, pident, qcovhsp, bitscore, evalue):
+    def create(
+        self, sseqid, slen, qstart, qend, sstart, send,
+        mismatch, gapopen, length, pident, qcovhsp, bitscore, evalue
+    ):
         if self._is_last(sseqid):
             hit = self.hits[-1]
         else:
@@ -151,7 +154,7 @@ class Record:
                 best = hit
         return best
 
-    def filter(self, filter):
+    def filter(self, filter):  # noqa
         """Filter hits by Filter object."""
         self.hits[:] = [hit for hit in self.hits if filter(hit)]
 
@@ -284,8 +287,9 @@ class BlastOutputFile:
             ]
         except (ValueError, IndexError) as exc:
             raise IOError(
-                f'File {self.path} must be a tab-delimited file, and its columns must be organized in the following order: qseqid, '
-                f'qlen, sseqid, slen, qstart, qend, sstart, send, mismatch, gapopen, length, pident, qcovhsp, bitscore, and evalue: {exc}'
+                f'File {self.path} must be a tab-delimited file, and its columns must be organized in the following '
+                f'order: qseqid, qlen, sseqid, slen, qstart, qend, sstart, send, mismatch, gapopen, length, pident, '
+                f'qcovhsp, bitscore, and evalue: {exc}'
             )
 
     def __iter__(self):
@@ -337,7 +341,7 @@ class Filter:
     base class, and all subclasses must implement its __call__ method. This method returns True if the hit should be
     retained; otherwise, it should be discarded.
     """
-    def filter(self, hit):
+    def __call__(self, hit):
         raise NotImplementedError
 
 
